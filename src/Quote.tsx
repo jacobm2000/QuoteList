@@ -11,7 +11,10 @@ export default function Quote(props) {
         {props.quote} <br />
         <b>{props.author}</b>
       </p>
-      <button className="btn btn-danger" onClick={props.deleteFun.bind(props.id)}>
+      <button
+        className="btn btn-danger"
+        onClick={props.deleteFun.bind(props, props.id)}
+      >
         delete
       </button>
     </div>

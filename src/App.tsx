@@ -11,8 +11,9 @@ export default function App() {
   const [quotes, setQuotes] = React.useState([]);
 
   function deleteQuote(id) {
-    const newQuotes = quotes.filter((quote) => quote.id !== id);
+    const newQuotes = quotes.filter((quote) => quote.props.id !== id);
     setQuotes(newQuotes);
+    console.log(newQuotes);
     console.log('delete');
   }
   const handleClick = () => {
