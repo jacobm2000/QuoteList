@@ -1,0 +1,17 @@
+h1,
+p {
+  font-family: 'Times New Roman', Times, serif;
+}
+label {
+  margin-right: 1rem;
+}
+button {
+  margin-left: 1rem;
+}
+#quote {
+  color: black;
+  font-style: italic;
+}
+#body {
+  text-align: center;
+}
