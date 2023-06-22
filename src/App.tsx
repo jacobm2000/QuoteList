@@ -10,13 +10,16 @@ export default function App() {
   const authorRef = React.useRef(null);
   const [quotes, setQuotes] = React.useState([]);
 
-  function deleteQuote(id) {
-    const newQuotes = quotes.filter((quote) => quote.props.id !== id);
+  function clearList() {
+    setQuotes([]);
+  }
+  function deleteQuote(key) {
+    const newQuotes = quotes.filter((item) => item.id != key);
     setQuotes(newQuotes);
-    console.log(newQuotes);
+    console.log(key);
     console.log('delete');
   }
-  const handleClick = () => {
+  const addQuote = () => {
     const quote = quoteRef.current.value;
     const author = authorRef.current.value;
 
@@ -44,11 +47,16 @@ export default function App() {
         </div>
         <div className="row mt-3">
           <label>Author</label>
-
           <input type="text" name="author" ref={authorRef} />
-          <button className=" btn btn-primary " onClick={handleClick}>
-            Add Quote
-          </button>
+          <div className="buttons mt-2">
+            <button className=" btn btn-primary " onClick={addQuote}>
+              Add Quote
+            </button>
+            <button className="btn btn-danger" onClick={clearList}>
+              {' '}
+              Clear List
+            </button>
+          </div>
         </div>
       </div>
       <QuoteList quotes={quotes} />
