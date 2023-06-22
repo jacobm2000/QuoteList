@@ -13,29 +13,24 @@ export default function App() {
   function clearList() {
     setQuotes([]);
   }
-  function deleteQuote(key) {
-    const newQuotes = quotes.filter((item) => item.id != key);
-    setQuotes(newQuotes);
-    console.log(key);
-    console.log('delete');
-  }
+
   const addQuote = () => {
     const quote = quoteRef.current.value;
     const author = authorRef.current.value;
-
-    setQuotes((prevQuotes) => {
-      return [
-        ...prevQuotes,
-        <Quote
-          id={v4()}
-          quote={quote}
-          author={'-' + author}
-          deleteFun={deleteQuote}
-        />,
-      ];
-    });
-    quoteRef.current.value = null;
-    authorRef.current.value = null;
+    if (quote != '' && author != '') {
+      setQuotes((prevQuotes) => {
+        return [
+          ...prevQuotes,
+          <Quote id={v4()} quote={quote} author={'-' + author} />,
+        ];
+      });
+    
+      quoteRef.current.value = null;
+      authorRef.current.value = null;
+    }
+    else{
+      alert('The Quote or Author Feild is empty')
+    }
   };
 
   return (
